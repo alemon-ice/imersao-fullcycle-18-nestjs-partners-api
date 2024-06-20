@@ -1,0 +1,41 @@
+@base_url = http://localhost:3000
+@path = {{base_url}}/events
+
+### GET ALL EVENTS
+# @name get_all_events
+GET {{path}}
+
+### CREATE EVENT
+# @name create_event
+POST {{path}}
+Content-Type: application/json
+
+{
+  "name": "New Event",
+  "description": "This is a new event",
+  "date": "2024-06-20T00:00:00",
+  "price": 30.00
+}
+
+###
+@event_id = {{create_event.response.body.id}}
+
+### GET EVENT BY ID
+# @name get_event_by_id
+GET {{path}}/{{event_id}}
+
+### UPDATE EVENT
+# @name update_event
+PATCH {{path}}/{{event_id}}
+Content-Type: application/json
+
+{
+  "name": "New Event II",
+  "description": "This is a new event",
+  "date": "2024-06-20T00:00:00",
+  "price": 30.00
+}
+
+### DELETE EVENT
+# @name delete_event
+DELETE {{path}}/{{event_id}}
