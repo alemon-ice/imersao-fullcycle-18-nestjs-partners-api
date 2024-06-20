@@ -1,0 +1,36 @@
+@base_url = http://localhost:3000
+@eventId = clxn7xvwp0000owc6d78gyfvw
+@path = {{base_url}}/events/{{eventId}}/spots
+
+### GET ALL SPOTS
+# @name get_all_spots
+GET {{path}}
+
+### CREATE SPOT
+# @name create_spot
+POST {{path}}
+Content-Type: application/json
+
+{
+  "name": "A1"
+}
+
+###
+@event_id = {{create_spot.response.body.id}}
+
+### GET SPOT BY ID
+# @name get_spot_by_id
+GET {{path}}/{{event_id}}
+
+### UPDATE SPOT
+# @name update_spot
+PATCH {{path}}/{{event_id}}
+Content-Type: application/json
+
+{
+  "name": "A2"
+}
+
+### DELETE SPOT
+# @name delete_spot
+DELETE {{path}}/{{event_id}}
