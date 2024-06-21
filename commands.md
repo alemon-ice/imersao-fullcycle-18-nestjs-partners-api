@@ -1,15 +1,19 @@
 ### Comandos docker:
 
 ```bash
-# Rodar o docker:
+# Rodar containers:
 $ docker compose up
-# Encerrar o docker:
+# Encerrar containers:
 $ docker compose up
-# Acessar bash do docker:
+# Acessar bash do container db:
 $ sudo docker compose exec db bash
+# Acessar bash do container app:
+$ sudo docker compose exec app bash
 ```
 
 ### Comandos mysql:
+
+São executados no bash do container **db**
 
 ```bash
 # Acessar bash do mysql:

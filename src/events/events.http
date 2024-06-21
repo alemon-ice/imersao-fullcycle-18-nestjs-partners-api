@@ -39,3 +39,14 @@ Content-Type: application/json
 ### DELETE EVENT
 # @name delete_event
 DELETE {{path}}/{{event_id}}
+
+### RESERVE SPOTS
+# @name reserve_spots
+POST {{path}}/{{event_id}}/reserve
+Content-Type: application/json
+
+{
+  "spots": ["A2"],
+  "ticket_kind": "full",
+  "email": "rafael@teste.com"
+}

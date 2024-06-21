@@ -1,5 +1,5 @@
 @base_url = http://localhost:3000
-@eventId = clxn7xvwp0000owc6d78gyfvw
+@eventId = 001fcd07-92a5-4165-8da2-f483909e3c0c
 @path = {{base_url}}/events/{{eventId}}/spots
 
 ### GET ALL SPOTS
@@ -16,15 +16,15 @@ Content-Type: application/json
 }
 
 ###
-@event_id = {{create_spot.response.body.id}}
+@spot_id = {{create_spot.response.body.id}}
 
 ### GET SPOT BY ID
 # @name get_spot_by_id
-GET {{path}}/{{event_id}}
+GET {{path}}/{{spot_id}}
 
 ### UPDATE SPOT
 # @name update_spot
-PATCH {{path}}/{{event_id}}
+PATCH {{path}}/{{spot_id}}
 Content-Type: application/json
 
 {
@@ -33,4 +33,4 @@ Content-Type: application/json
 
 ### DELETE SPOT
 # @name delete_spot
-DELETE {{path}}/{{event_id}}
+DELETE {{path}}/{{spot_id}}
