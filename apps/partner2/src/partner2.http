@@ -1,6 +1,7 @@
 @base_url = http://localhost:3001
 
-// EVENT ROUTES
+###
+# EVENT ROUTES
 
 @event_path = {{base_url}}/events
 
@@ -47,14 +48,16 @@ DELETE {{event_path}}/{{event_id}}
 # @name reserve_spots
 POST {{event_path}}/{{event_id}}/reserve
 Content-Type: application/json
+X-Api-Token: 000
 
 {
-  "spots": ["A2"],
+  "spots": ["A1"],
   "ticket_kind": "full",
   "email": "rafael@teste.com"
 }
 
-// SPOT ROUTES
+###
+# SPOT ROUTES
 
 @spot_path = {{base_url}}/events/{{event_id}}/spots
 
@@ -68,7 +71,7 @@ POST {{spot_path}}
 Content-Type: application/json
 
 {
-  "name": "A2"
+  "name": "A1"
 }
 
 ###
