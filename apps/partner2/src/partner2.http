@@ -1,0 +1,92 @@
+@base_url = http://localhost:3001
+
+// EVENT ROUTES
+
+@event_path = {{base_url}}/events
+
+### GET ALL EVENTS
+# @name get_all_events
+GET {{event_path}}
+
+### CREATE EVENT
+# @name create_event
+POST {{event_path}}
+Content-Type: application/json
+
+{
+  "name": "New Event",
+  "description": "This is a new event",
+  "date": "2024-06-20T00:00:00",
+  "price": 30.00
+}
+
+###
+@event_id = {{create_event.response.body.id}}
+
+### GET EVENT BY ID
+# @name get_event_by_id
+GET {{event_path}}/{{event_id}}
+
+### UPDATE EVENT
+# @name update_event
+PATCH {{event_path}}/{{event_id}}
+Content-Type: application/json
+
+{
+  "name": "New Event II",
+  "description": "This is a new event",
+  "date": "2024-06-20T00:00:00",
+  "price": 30.00
+}
+
+### DELETE EVENT
+# @name delete_event
+DELETE {{event_path}}/{{event_id}}
+
+### RESERVE SPOTS
+# @name reserve_spots
+POST {{event_path}}/{{event_id}}/reserve
+Content-Type: application/json
+
+{
+  "spots": ["A2"],
+  "ticket_kind": "full",
+  "email": "rafael@teste.com"
+}
+
+// SPOT ROUTES
+
+@spot_path = {{base_url}}/events/{{event_id}}/spots
+
+### GET ALL SPOTS
+# @name get_all_spots
+GET {{spot_path}}
+
+### CREATE SPOT
+# @name create_spot
+POST {{spot_path}}
+Content-Type: application/json
+
+{
+  "name": "A2"
+}
+
+###
+@spot_id = {{create_spot.response.body.id}}
+
+### GET SPOT BY ID
+# @name get_spot_by_id
+GET {{spot_path}}/{{spot_id}}
+
+### UPDATE SPOT
+# @name update_spot
+PATCH {{spot_path}}/{{spot_id}}
+Content-Type: application/json
+
+{
+  "name": "A2"
+}
+
+### DELETE SPOT
+# @name delete_spot
+DELETE {{spot_path}}/{{spot_id}}
